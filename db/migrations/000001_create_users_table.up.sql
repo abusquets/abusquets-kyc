@@ -1,0 +1,11 @@
+CREATE TABLE kyc.users(
+    id SERIAL NOT NULL,
+    uuid UUID UNIQUE NOT NULL DEFAULT uuid_generate_v4(),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password TEXT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    is_admin BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (id)
+);
